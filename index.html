@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-op Score Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Three columns layout */
+        gap: 10px; /* Gap between grid items */
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    input[type="number"] {
+        width: calc(100% - 8px); /* Adjusted width for better alignment */
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    select {
+        width: calc(100% - 8px); /* Adjusted width for better alignment */
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        grid-column: span 3; /* Button spans across all three columns */
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<h2>Co-op Score Calculator</h2>
+<form id="scoreCalculatorForm">
+    <!-- Other input fields -->
+    <label for="contractLength">Contract Length in Days:</label>
+    <input type="number" id="contractLength" name="contractLength" required><br>
+    <label for="coopSize">Max Size of Co-op:</label>
+    <input type="number" id="coopSize" name="coopSize" required><br>
+    <label for="completionTime">Completion Time (Seconds):</label>
+    <input type="number" id="completionTime" name="completionTime" required><br>
+    <label for="coopGoals">Total Number of Goals in the Contract:</label>
+    <input type="number" id="coopGoals" name="coopGoals" required><br>
+    <label for="goalsCompleted">Number of Goals Completed:</label>
+    <input type="number" id="goalsCompleted" name="goalsCompleted" required><br>
+    <label for="grade">Grade (1=C, 2=B, 3=A, 4=AA, 5=AAA):</label>
+    <input type="number" id="grade" name="grade" required><br>
+    <!-- Start of dropdowns -->
+    <label for="yourContribution">Number of Eggs You Have Delivered:</label>
+    <input type="number" id="yourContribution" name="yourContribution" step="0.00001" required>
+    <select id="yourContributionDropdown" style="width: calc(100% - 8px);">
+        <option value="0">K</option>
+        <option value="1">M</option>
+        <option value="2">B</option>
+        <option value="3">T</option>        
+        <option value="4">q</option>
+        <option value="5">Q</option>
+        <option value="6">s</option>
+        <option value="7">S</option>
+        <option value="8">o</option>
+        <option value="9">N</option>
+        <option value="10">d</option>
+        <option value="11">U</option>
+        <option value="12">D</option>
+        <option value="13">Td</option>
+        <option value="14">qd</option>
+        <option value="15">Qd</option>
+        <option value="16">sd</option>
+        <option value="17">Sd</option>
+        <option value="18">Od</option>
+        <option value="19">Nd</option>
+        <option value="20">V</option>
+        <option value="21">uV</option>
+        <option value="22">dV</option>
+        <option value="23">tV</option>
+        <option value="24">qV</option>
+        <option value="25">QV</option>
+        <option value="26">sV</option>
+        <option value="27">SV</option>
+        <option value="28">OV</option>
+        <option value="29">NV</option>
+        <option value="30">tT</option>
+    </select>
+    <label for="eggsDelivered">Total Eggs Delivered by Everyone in Co-op:</label>
+    <input type="number" id="eggsDelivered" name="eggsDelivered" step="0.00001" required>
+    <select id="eggsDeliveredDropdown" style="width: calc(100% - 8px);">
+        <option value="0">K</option>
+        <option value="1">M</option>
+        <option value="2">B</option>
+        <option value="3">T</option>        
+        <option value="4">q</option>
+        <option value="5">Q</option>
+        <option value="6">s</option>
+        <option value="7">S</option>
+        <option value="8">o</option>
+        <option value="9">N</option>
+        <option value="10">d</option>
+        <option value="11">U</option>
+        <option value="12">D</option>
+        <option value="13">Td</option>
+        <option value="14">qd</option>
+        <option value="15">Qd</option>
+        <option value="16">sd</option>
+        <option value="17">Sd</option>
+        <option value="18">Od</option>
+        <option value="19">Nd</option>
+        <option value="20">V</option>
+        <option value="21">uV</option>
+        <option value="22">dV</option>
+        <option value="23">tV</option>
+        <option value="24">qV</option>
+        <option value="25">QV</option>
+        <option value="26">sV</option>
+        <option value="27">SV</option>
+        <option value="28">OV</option>
+        <option value="29">NV</option>
+        <option value="30">tT</option>
+    </select>
+    <!-- End of dropdowns -->
+    <label for="shipTime">Ship in a Bottle Time Equipped (seconds):</label>
+    <input type="number" id="shipTime" name="shipTime" required><br>
+    <label for="shipBuff">Ship in a Bottle Percent Boost:</label>
+    <input type="number" id="shipBuff" name="shipBuff" required><br>
+    <label for="deflectorTime">Tachyon Deflector Time Equipped (seconds):</label>
+    <input type="number" id="deflectorTime" name="deflectorTime" required><br>
+    <label for="deflectorBuff">Tachyon Deflector Percent Boost:</label>
+    <input type="number" id="deflectorBuff" name="deflectorBuff" required><br>
+    <label for="chickenRunsSent">Chicken Runs Sent:</label>
+    <input type="number" id="chickenRunsSent" name="chickenRunsSent" required><br>
+    <label for="tokenValuesSent">Number of Tokens Sent:</label>
+    <input type="number" id="tokenValuesSent" name="tokenValuesSent" required><br>
+    <label for="tokenValuesReceived">Number of Tokens Received:</label>
+    <input type="number" id="tokenValuesReceived" name="tokenValuesReceived" required><br>
+    <label for="tokenTime">Boost Token Interval (Minutes):</label>
+    <input type="number" id="tokenTime" name="tokenTime" required><br>
+    <button type="submit">Calculate Score</button>
+</form>
+<div id="result"></div>
+<script>
+document.getElementById('scoreCalculatorForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    calculateScore();
+});
+
+function calculateScore() {
+    var formData = new FormData(document.getElementById('scoreCalculatorForm'));
+    
+    var contractLength = parseInt(formData.get('contractLength'));
+    var coopSize = parseInt(formData.get('coopSize'));
+    var completionTime = parseFloat(formData.get('completionTime'));
+    var coopGoals = parseInt(formData.get('coopGoals'));
+    var goalsCompleted = parseInt(formData.get('goalsCompleted'));
+    var grade = parseInt(formData.get('grade'));
+    var yourContribution = parseFloat(formData.get('yourContribution'));
+    var eggsDelivered = parseFloat(formData.get('eggsDelivered'));
+    var shipTime = parseFloat(formData.get('shipTime'));
+    var shipBuff = parseFloat(formData.get('shipBuff'));
+    var deflectorTime = parseFloat(formData.get('deflectorTime'));
+    var deflectorBuff = parseFloat(formData.get('deflectorBuff'));
+    var chickenRunsSent = parseInt(formData.get('chickenRunsSent'));
+    var tokenValuesSent = parseInt
