@@ -39,7 +39,7 @@ body {
         border-radius: 5px;
       }
       button {
-        grid-column: span 2; /* Button spans across all three columns */
+        grid-column: span 2;
         width: 100%;
         padding: 10px;
         background-color: #007bff;
