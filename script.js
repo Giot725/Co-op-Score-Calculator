@@ -15,8 +15,10 @@ document.getElementById("scoreCalculatorForm").addEventListener("submit", functi
         var coopGoals = parseInt(formData.get("coopGoals"));
         var goalsCompleted = parseInt(formData.get("goalsCompleted"));
         var grade = parseInt(formData.get("grade"));
-        var yourContribution = parseFloat(formData.get("yourContribution"));
-        var eggsDelivered = parseFloat(formData.get("eggsDelivered"));
+        var yourContributionDropdown = document.getElementById("yourContributionDropdown");
+        var eggsDeliveredDropdown = document.getElementById("eggsDeliveredDropdown");
+        var yourContribution = parseFloat(formData.get("yourContribution")) * 10 ** yourContributionDropdown.value;
+        var eggsDelivered = parseFloat(formData.get("eggsDelivered")) * 10 ** eggsDeliveredDropdown.value;
         var shipTime = parseFloat(formData.get("shipTime"));
         var shipBuff = parseFloat(formData.get("shipBuff"));
         var deflectorTime = parseFloat(formData.get("deflectorTime"));
