@@ -39,7 +39,7 @@ body {
         border-radius: 5px;
       }
       button {
-        grid-column: span 2;
+        grid-column: span 2; /* Button spans across all three columns */
         width: 100%;
         padding: 10px;
         background-color: #007bff;
@@ -51,7 +51,6 @@ body {
       button:hover {
         background-color: #0056b3;
       }
-
       #result {
         display: flex;
         align-items: center;
