@@ -1,8 +1,9 @@
 body {
   display: grid;
-  grid-template-columns: 1fr 11fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
-  max-width: 80vw;
+  width: 80vw;
+  max-width: 700px;
   margin: 0 auto;
   padding: 5px;
   font-family: Arial, sans-serif;
@@ -26,13 +27,20 @@ label {
   font-weight: bold;
 }
 
-input[type="number"] {
+input {
   width: calc(100% - 8px);
   padding: 6px;
   margin-bottom: 5px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.timeInputs {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 select {
@@ -62,6 +70,6 @@ button:hover {
 #result {
   display: flex;
   align-items: center;
-  padding: 12px;
-  font-size: 16px;
+  padding: 12px 0px;
+  font-size: 18px;
 }
