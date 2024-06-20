@@ -12,108 +12,54 @@
     <br />
     <div></div>
     <form id="scoreCalculatorForm">
-      <label for="contractLengthInDays">Contract Length (days):</label>
-      <input type="number" id="contractLengthInDays" name="contractLengthInDays" value="0" required /><br />
-      <label for="coopSize">Max Size of Co-op:</label>
-      <input type="number" id="coopSize" name="coopSize" value="0" required /><br />
-      <label for="completionTime">Completion Time (seconds):</label>
-      <input type="number" id="completionTime" name="completionTime" value="0" required /><br />
-      <label for="coopGoals">Total Number of Goals in the Contract:</label>
-      <input type="number" id="coopGoals" name="coopGoals" value="0" required /><br />
-      <label for="goalsCompleted">Number of Goals Completed:</label>
-      <input type="number" id="goalsCompleted" name="goalsCompleted" value="0" required /><br />
-      <label for="grade">Grade (1=C, 2=B, 3=A, 4=AA, 5=AAA):</label>
-      <input type="number" id="grade" name="grade" value="0" required /><br />
-      <label for="yourContribution">Number of Eggs You Have Delivered:</label>
-      <input type="number" id="yourContribution" name="yourContribution" step="0.00001" value="0" required />
-      <select id="yourContributionDropdown" style="width: calc(100% - 8px)">
-        <option value="2">K</option>
-        <option value="5">M</option>
-        <option value="7">B</option>
-        <option value="10">T</option>
-        <option value="13">q</option>
-        <option value="16">Q</option>
-        <option value="19">s</option>
-        <option value="22">S</option>
-        <option value="25">o</option>
-        <option value="28">N</option>
-        <option value="31">d</option>
-        <option value="34">U</option>
-        <option value="37">D</option>
-        <option value="40">Td</option>
-        <option value="43">qd</option>
-        <option value="46">Qd</option>
-        <option value="49">sd</option>
-        <option value="52">Sd</option>
-        <option value="55">Od</option>
-        <option value="58">Nd</option>
-        <option value="61">V</option>
-        <option value="64">uV</option>
-        <option value="67">dV</option>
-        <option value="70">tV</option>
-        <option value="73">qV</option>
-        <option value="76">QV</option>
-        <option value="79">sV</option>
-        <option value="82">SV</option>
-        <option value="85">OV</option>
-        <option value="88">NV</option>
-        <option value="91">tT</option>
-      </select>
-      <label for="eggsDelivered">Total Eggs Delivered by Everyone in Co-op:</label>
-      <input type="number" id="eggsDelivered" name="eggsDelivered" step="0.00001" value="0" required />
-      <select id="eggsDeliveredDropdown" style="width: calc(100% - 8px)">
-        <option value="2">K</option>
-        <option value="5">M</option>
-        <option value="7">B</option>
-        <option value="10">T</option>
-        <option value="13">q</option>
-        <option value="16">Q</option>
-        <option value="19">s</option>
-        <option value="22">S</option>
-        <option value="25">o</option>
-        <option value="28">N</option>
-        <option value="31">d</option>
-        <option value="34">U</option>
-        <option value="37">D</option>
-        <option value="40">Td</option>
-        <option value="43">qd</option>
-        <option value="46">Qd</option>
-        <option value="49">sd</option>
-        <option value="52">Sd</option>
-        <option value="55">Od</option>
-        <option value="58">Nd</option>
-        <option value="61">V</option>
-        <option value="64">uV</option>
-        <option value="67">dV</option>
-        <option value="70">tV</option>
-        <option value="73">qV</option>
-        <option value="76">QV</option>
-        <option value="79">sV</option>
-        <option value="82">SV</option>
-        <option value="85">OV</option>
-        <option value="88">NV</option>
-        <option value="91">tT</option>
-      </select>
-      <label for="shipTime">Ship in a Bottle Time Equipped (seconds):</label>
-      <input type="number" id="shipTime" name="shipTime" value="0" /><br />
-      <label for="shipBuff">Ship in a Bottle Percent Boost:</label>
-      <input type="number" id="shipBuff" name="shipBuff" value="0" /><br />
-      <label for="deflectorTime">Tachyon Deflector Time Equipped (seconds):</label>
-      <input type="number" id="deflectorTime" name="deflectorTime" value="0"/><br />
-      <label for="deflectorBuff">Tachyon Deflector Percent Boost:</label>
-      <input type="number" id="deflectorBuff" name="deflectorBuff" value="0" /><br />
-      <label for="chickenRunsSent">Chicken Runs Sent to Co-op Members:</label>
-      <input type="number" id="chickenRunsSent" name="chickenRunsSent" value="0" /><br />
-      <label for="tokenValuesSent">Number of Boost Tokens Sent:</label>
-      <input type="number" id="tokenValuesSent" name="tokenValuesSent" value="0" /><br />
-      <label for="tokenValuesReceived">Number of Boost Tokens Received:</label>
-      <input type="number" id="tokenValuesReceived" name="tokenValuesReceived" value="0" /><br />
-      <label for="tokenTime">Boost Token Interval (Minutes):</label>
-      <input type="number" id="tokenTime" name="tokenTime" value="0" required /><br />
-      <button type="submit">Calculate Score</button>
-      <div id="scoreContainer">
-        <div id="result">Score:</div>
-      </div>
+        <label for="gradePoints">Grade:</label>
+        <select id="gradePoints" name="gradePoints" style="width: calc(100% - 8px)">
+          <option value="7">AAA</option>
+          <option value="5">AA</option>
+          <option value="3.5">A</option>
+          <option value="2">B</option>
+          <option value="1">C</option>
+        </select><br>
+        <label for="coopSize">Max Size of Co-op:</label>
+        <input type="number" id="coopSize" name="coopSize" placeholder="1, 2, 3, ..." required /><br>
+        <label for="originalLengthInDays">Original Length In Days:</label>
+        <input type="number" id="originalLengthInDays" name="originalLengthInDays" placeholder="1, 2, 3, ..." required /><br>
+        <label for="goal1">Eggs required to reach the first goal:</label>
+        <input type="text" id="goal1" name="goal1" placeholder="250, 3q, 5.7Td, ..." required /><br />
+        <label for="goal3">Eggs required to reach the third goal:</label>
+        <input type="text" id="goal3" name="goal3" placeholder="250, 3q, 5.7Td, ..." required /><br />
+        <label for="yourEggsDelivered">Number of Eggs You Have Delivered:</label>
+        <input type="text" id="yourEggsDelivered" name="yourEggsDelivered" step="0.0000000001" placeholder="250, 3q, 5.7Td, ..." required /><br>
+        <label for="coopEggsDelivered">Total Eggs Delivered by Everyone in Co-op:</label>
+        <input type="text" id="coopEggsDelivered" name="coopEggsDelivered" step="0.0000000001" placeholder="250, 3q, 5.7Td, ..." required /><br>
+        <label for="chickenRunsSent">Chicken runs sent to coop members:</label>
+        <input type="number" id="chickenRunsSent" name="chickenRunsSent" placeholder="1, 2, 3, ..." required /><br>
+        <label for="tachyonDeflectorBoost">Percent boost of tachyon deflector:</label>
+        <input type="number" id="tachyonDeflectorBoost" name="tachyonDeflectorBoost" placeholder="1, 2, 3, ..." required /><br>
+        <label for="shipInABottleBoost">Percent boost of ship in a bottle:</label>
+        <input type="number" id="shipInABottleBoost" name="shipInABottleBoost" placeholder="1, 2, 3, ..." required /><br>
+        <label for="tachyonDeflectorTimeEquipped">Ammount of time tachyon deflector was equiped:</label>
+        <div class="timeInputs">
+          <input type="number" id="tachyonDeflectorTimeEquippedDays" name="tachyonDeflectorTimeEquippedDays" placeholder="Days" required />
+          <input type="number" id="tachyonDeflectorTimeEquippedHours" name="tachyonDeflectorTimeEquippedHours" placeholder="Hours" required />
+          <input type="number" id="tachyonDeflectorTimeEquippedMinutes" name="tachyonDeflectorTimeEquippedMinutes" placeholder="Minutes" required />
+        </div>
+        <label for="shipInABottleTimeEquipped">Ammount of time ship in a bottle was equiped:</label>
+        <div class="timeInputs">
+          <input type="number" id="shipInABottleTimeEquippedDays" name="shipInABottleTimeEquippedDays" placeholder="Days" required />
+          <input type="number" id="shipInABottleTimeEquippedHours" name="shipInABottleTimeEquippedHours" placeholder="Hours" required />
+          <input type="number" id="shipInABottleTimeEquippedMinutes" name="shipInABottleTimeEquippedMinutes" placeholder="Minutes" required />
+        </div>
+        <label for="timeElapsed">Time elapsed from start of contract till projected end:</label>
+        <div class="timeInputs">
+          <input type="number" id="timeElapsedDays" name="timeElapsedDays" placeholder="Days" required />
+          <input type="number" id="timeElapsedHours" name="timeElapsedHours" placeholder="Hours" required />
+          <input type="number" id="timeElapsedMinutes" name="timeElapsedMinutes" placeholder="Minutes" required />
+        </div>
+        <button type="submit">Calculate Score</button>
+        <div id="scoreContainer">
+            <div id="result">Score:</div>
+        </div>
     </form>
 
     <script src="script.js"></script>
